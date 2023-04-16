@@ -1,6 +1,10 @@
 var currentDay = $("#currentDay");
 var buttonEl = $(".btn");
 
+// for each loop is used to iterate through an array 
+// create an array of ["9","10","11",etc] , then assign to hourEl
+// OR create an array of ["#hour-9", "hour-10"], then access the second element
+
 
 
 
@@ -16,8 +20,7 @@ function clickSaveInput (event) {
 
 
 // to test current time
-var currentTime = 9
-console.log(currentTime);
+var currentTime = 15
 
 // when I click the save button, the input text should be saved in the local storage and the input stays
 buttonEl.on("click", clickSaveInput);
@@ -28,216 +31,22 @@ buttonEl.on("click", clickSaveInput);
 // //   return hourEl;
 // // });
 // console.log(hourEl);
-function colorCode() {
-  var divEl = $("#hour-9");
-  var hourEl = divEl.attr("id").split("-")[1];
-  console.log(hourEl);
-
-  if (currentTime == hourEl) {
+for (var i = 9; i < 18; i++){
+  var hourEl = $(`#hour-${i}`)
+  hourEl.removeClass(["past", "present", "future"]);
+if (i === currentTime) {
+  console.log(`current time${i}`);
     // add class present
-    divEl.addClass("present");
-    // remove the future class
-    divEl.removeClass("future");
-    // remove the past class
-    divEl.removeClass("past");
-  }
-  // add else if, if current time > hourEl,
-  else if (currentTime > hourEl) {
-    divEl.addClass("past");
-    divEl.removeClass("present");
-    divEl.removeClass("future");
-  } else if (currentTime < hourEl) {
-    divEl.addClass("future");
-    divEl.removeClass("present");
-    divEl.removeClass("past");
-  }
-  var divEl = $("#hour-10");
-  var hourEl = divEl.attr("id").split("-")[1];
-  console.log(hourEl);
-
-  if (currentTime == hourEl) {
+    hourEl.addClass("present");
+  } else if (i > currentTime){
     // add class present
-    divEl.addClass("present");
-    // remove the future class
-    divEl.removeClass("future");
-    // remove the past class
-    divEl.removeClass("past");
-  }
-  // add else if, if current time > hourEl,
-  else if (currentTime > hourEl) {
-    divEl.addClass("past");
-    divEl.removeClass("present");
-    divEl.removeClass("future");
-  } else if (currentTime < hourEl) {
-    divEl.addClass("future");
-    divEl.removeClass("present");
-    divEl.removeClass("past");
-  }
-
-  var divEl = $("#hour-11");
-  var hourEl = divEl.attr("id").split("-")[1];
-  console.log(hourEl);
-
-  if (currentTime == hourEl) {
-    // add class present
-    divEl.addClass("present");
-    // remove the future class
-    divEl.removeClass("future");
-    // remove the past class
-    divEl.removeClass("past");
-  }
-  // add else if, if current time > hourEl,
-  else if (currentTime > hourEl) {
-    divEl.addClass("past");
-    divEl.removeClass("present");
-    divEl.removeClass("future");
-  } else if (currentTime < hourEl) {
-    divEl.addClass("future");
-    divEl.removeClass("present");
-    divEl.removeClass("past");
-  }
-
-  var divEl = $("#hour-12");
-  var hourEl = divEl.attr("id").split("-")[1];
-  console.log(hourEl);
-
-  if (currentTime == hourEl) {
-    // add class present
-    divEl.addClass("present");
-    // remove the future class
-    divEl.removeClass("future");
-    // remove the past class
-    divEl.removeClass("past");
-  }
-  // add else if, if current time > hourEl,
-  else if (currentTime > hourEl) {
-    divEl.addClass("past");
-    divEl.removeClass("present");
-    divEl.removeClass("future");
-  } else if (currentTime < hourEl) {
-    divEl.addClass("future");
-    divEl.removeClass("present");
-    divEl.removeClass("past");
-  }
-  var divEl = $("#hour-13");
-  var hourEl = divEl.attr("id").split("-")[1];
-  console.log(hourEl);
-
-  if (currentTime == hourEl) {
-    // add class present
-    divEl.addClass("present");
-    // remove the future class
-    divEl.removeClass("future");
-    // remove the past class
-    divEl.removeClass("past");
-  }
-  // add else if, if current time > hourEl,
-  else if (currentTime > hourEl) {
-    divEl.addClass("past");
-    divEl.removeClass("present");
-    divEl.removeClass("future");
-  } else if (currentTime < hourEl) {
-    divEl.addClass("future");
-    divEl.removeClass("present");
-    divEl.removeClass("past");
-  }
-  var divEl = $("#hour-14");
-  var hourEl = divEl.attr("id").split("-")[1];
-  console.log(hourEl);
-
-  if (currentTime == hourEl) {
-    // add class present
-    divEl.addClass("present");
-    // remove the future class
-    divEl.removeClass("future");
-    // remove the past class
-    divEl.removeClass("past");
-  }
-  // add else if, if current time > hourEl,
-  else if (currentTime > hourEl) {
-    divEl.addClass("past");
-    divEl.removeClass("present");
-    divEl.removeClass("future");
-  } else if (currentTime < hourEl) {
-    divEl.addClass("future");
-    divEl.removeClass("present");
-    divEl.removeClass("past");
-  }
-
-  var divEl = $("#hour-15");
-  var hourEl = divEl.attr("id").split("-")[1];
-  console.log(hourEl);
-
-  if (currentTime == hourEl) {
-    // add class present
-    divEl.addClass("present");
-    // remove the future class
-    divEl.removeClass("future");
-    // remove the past class
-    divEl.removeClass("past");
-  }
-  // add else if, if current time > hourEl,
-  else if (currentTime > hourEl) {
-    divEl.addClass("past");
-    divEl.removeClass("present");
-    divEl.removeClass("future");
-  } else if (currentTime < hourEl) {
-    divEl.addClass("future");
-    divEl.removeClass("present");
-    divEl.removeClass("past");
-  }
-
-  var divEl = $("#hour-16");
-  var hourEl = divEl.attr("id").split("-")[1];
-  console.log(hourEl);
-
-  if (currentTime == hourEl) {
-    // add class present
-    divEl.addClass("present");
-    // remove the future class
-    divEl.removeClass("future");
-    // remove the past class
-    divEl.removeClass("past");
-  }
-  // add else if, if current time > hourEl,
-  else if (currentTime > hourEl) {
-    divEl.addClass("past");
-    divEl.removeClass("present");
-    divEl.removeClass("future");
-  } else if (currentTime < hourEl) {
-    divEl.addClass("future");
-    divEl.removeClass("present");
-    divEl.removeClass("past");
-  }
-
-  var divEl = $("#hour-17");
-  var hourEl = divEl.attr("id").split("-")[1];
-  console.log(hourEl);
-
-  if (currentTime == hourEl) {
-    // add class present
-    divEl.addClass("present");
-    // remove the future class
-    divEl.removeClass("future");
-    // remove the past class
-    divEl.removeClass("past");
-  }
-  // add else if, if current time > hourEl,
-  else if (currentTime > hourEl) {
-    divEl.addClass("past");
-    divEl.removeClass("present");
-    divEl.removeClass("future");
-  } else if (currentTime < hourEl) {
-    divEl.addClass("future");
-    divEl.removeClass("present");
-    divEl.removeClass("past");
+    hourEl.addClass("future");
+  } else {
+    hourEl.addClass("past")
   }
 }
-colorCode();
-
+  
 // use loop for the colorCode
-
-colorCode();
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
