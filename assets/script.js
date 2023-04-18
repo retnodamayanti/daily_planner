@@ -1,52 +1,40 @@
 var currentDay = $("#currentDay");
 var buttonEl = $(".btn");
-
-// for each loop is used to iterate through an array 
-// create an array of ["9","10","11",etc] , then assign to hourEl
-// OR create an array of ["#hour-9", "hour-10"], then access the second element
-
+var currentTime = dayjs().format("H");
+console.log(currentTime);
+var textArea = $(".description");
 
 
-
-function clickSaveInput (event) {
-  // read user input?
-
-  // add to the localstorage
-
-
-};
-// uncomment below to run function
-// var currentTime = dayjs().format("H");
+function getInput (){
+  
+  textArea.text(localStorage.getItem("description"));
+}
 
 
-// to test current time
-var currentTime = 15
+buttonEl.on("click", function () {
+  // read the text input
 
-// when I click the save button, the input text should be saved in the local storage and the input stays
-buttonEl.on("click", clickSaveInput);
+  var textInput = textArea.val();
+  console.log(textInput);
+  localStorage.setItem("description", textInput);
+});
 
-// // var hourEl = rowEL.map(getHour() {
-// //   var id = $(this).attr("id");
-// //   var hourEl = id.split("-")[1];
-// //   return hourEl;
-// // });
-// console.log(hourEl);
+
 for (var i = 9; i < 18; i++){
   var hourEl = $(`#hour-${i}`)
+  // console.log(hourEl);
   hourEl.removeClass(["past", "present", "future"]);
-if (i === currentTime) {
-  console.log(`current time${i}`);
-    // add class present
+if (i == currentTime) {
     hourEl.addClass("present");
   } else if (i > currentTime){
-    // add class present
-    hourEl.addClass("future");
+       hourEl.addClass("future");
   } else {
     hourEl.addClass("past")
   }
+  
 }
   
-// use loop for the colorCode
+
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -83,3 +71,4 @@ function showDate() {
 }
 
 showDate();
+getInput();
